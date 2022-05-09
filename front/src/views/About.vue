@@ -1,2 +1,2 @@
-<template src="../pages/about.html">
+<template src="../pages/about.html.twig">
 </template>
