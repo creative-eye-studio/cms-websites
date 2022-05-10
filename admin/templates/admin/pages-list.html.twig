@@ -21,9 +21,6 @@
                     <a href=" {{ app.request.schemeAndHttpHost }}/" target="_blank" rel="noopener">Voir</a>
                 </li>
                 {% elseif page.slug != "index" %}
-                <li>
-                    <a href="  {{ path('page_view', { slug: page.slug } )}} " target="_blank" rel="noopener">Voir</a>
-                </li>
                 {% endif %}
                 <li>
                     <a href=" {{ path('modify_page', { slug: page.filename } )}} ">Modifier</a>

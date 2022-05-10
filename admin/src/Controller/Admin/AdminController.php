@@ -362,7 +362,8 @@ class AdminController extends AbstractController
      */
     public function header_manage(Request $request){
 
-        $dataFile = file_get_contents("../templates/front/blocks/header.html.twig");
+        $pathFile = "../templates/front/blocks/content-page.html.twig";
+        $dataFile = file_get_contents($pathFile);
 
         $form = $this->createForm(CommonBlockType::class);
         $form->handleRequest($request);
@@ -371,8 +372,8 @@ class AdminController extends AbstractController
             $data = $form->getData();
             
             $filesystem = new Filesystem();
-            $filesystem->remove(['../templates/front/blocks/header.html.twig']);
-            $file = fopen("../templates/front/blocks/header.html.twig", "c+b");
+            $filesystem->remove([$pathFile]);
+            $file = fopen($pathFile, "c+b");
             fwrite($file, $data["block_content"]);
 
             return $this->redirectToRoute('header_manage');
@@ -391,7 +392,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/footer-manage", name="footer_manage")
      */
-    public function footer_manage(Request $request){
+    /*public function footer_manage(Request $request){
 
         $dataFile = file_get_contents("../templates/front/blocks/footer.html.twig");
 
@@ -414,5 +415,5 @@ class AdminController extends AbstractController
             'dataFile' => $dataFile,
             'controller_name' => 'AdminController',
         ]);
-    }
+    }*/
 }
