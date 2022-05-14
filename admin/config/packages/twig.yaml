@@ -1,5 +1,0 @@
-twig:
-    cache: false
-    default_path: '%kernel.project_dir%/templates'
-    form_themes:
-        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
